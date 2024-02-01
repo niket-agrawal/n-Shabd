@@ -30,8 +30,8 @@ with open(f_name, encoding='utf-8') as wf1:
 
 
 sys.path.append("D:/IITK Temp/NonWords_Vivek/custom-packages")
-sys.path.append("D:/IITK Temp/Wuggy/wuggy_base_v2.1/wuggy_functions")
-from IndicPseudo_gen import create_bigrams, bigram_language, pseudowords_gen, bigram_language_df
+sys.path.append("D:/IITK Temp/Wuggy/wuggy_base_vtest/wuggy_functions")
+from IndicPseudo_gen import create_bigrams, bigram_language, generate_pseudo, bigram_language_df
 import timing
 
 input_words = [input_word.splitlines()[0] for input_word in template_raw]
@@ -46,12 +46,12 @@ wrd_replace = 5
 for i in range(1):
 	input_word = "स्वागतम्"
 	all_non_words = []
-	legacy_code = 2
+	legacy_code = 3
 	#1 for original version (one at a time replacement) (BASED ON HIGHEST FREQUENCY)
 	#1+ for better original version (improvement in the idea that first akshar will change somehow)
 	#2 for current wuggylike version (one at a time replacement but not based on highest freq, BASED ON TRANSITION FREQ)
 	#3 for multiple replacements 
-	selected_bigs, word_template_chain = pseudowords_gen(input_word, "hi", df,legacy_code,wrd_replace)
+	selected_bigs, word_template_chain = generate_pseudo(input_word, "hi", df,legacy_code,wrd_replace)
 	print(selected_bigs)
 	print(word_template_chain)
 	
